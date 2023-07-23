@@ -4,7 +4,7 @@ Rammer is a tool for creating ramdisks without any permissions!
 
 ### Installation 
 ```bash
-git clone 
+git clone https://github.com/u7i/rammer
 mkdir build && cmake ../ 
 make -j4 && sudo make install
 ```
