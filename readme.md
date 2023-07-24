@@ -25,8 +25,8 @@ rammer [-mh] alloc {reference-size}
   Note, that all allocated disks will be destroyed on system reboot.
   
 - Machine-Readable Output: 
-  Ok      -> id, mount-point, real-size [ ExitCode = 0 ]
-  Failure -> failed-module-name, errno  [ ExitCode = 1 ]
+  Ok      -> id mount-point real-size  [ ExitCode = 0 ]
+  Failure -> failed-module-name errno  [ ExitCode = 1 ]
 ```
 
 ```
@@ -35,7 +35,7 @@ rammer [-mh] free {id}
 
 - Machine-Readable Output: 
   Ok      -> #Nothing                  [ ExitCode = 0 ]
-  Failure -> failed-module-name, errno [ ExitCode = 1 ]
+  Failure -> failed-module-name errno  [ ExitCode = 1 ]
 ```
 
 ```

@@ -16,7 +16,7 @@
 _Noreturn void panic(bool machine_readable, const char* emitter_name, const char* detail)
 {
     machine_readable ?
-        fprintf(stderr, "%s, %d\n", emitter_name, errno) :
+        fprintf(stderr, "%s %d\n", emitter_name, errno) :
         fprintf(stderr, "[Failed] %s (%s)\n", detail, strerror(errno));
 
     exit(EXIT_FAILURE);
@@ -199,7 +199,7 @@ int main(int argc, char** argv)
         }
 
         machine_readable ?
-            printf("%zu, %s, %zu\n", id, mp, real_size) :
+            printf("%zu %s %zu\n", id, mp, real_size) :
             printf("[Ok] %s ( allocated %zu bytes, id %zu )\n", mp, real_size, id);
 
         free(mp);
