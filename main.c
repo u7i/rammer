@@ -206,8 +206,14 @@ int main(int argc, char** argv)
     }
     else if (strcmp(argv[optind], "free") == 0)
     {
-        char* mp;
-        asprintf(&mp, ROOT"/%s", argv[optind + 1]);
+        char *mp, *first_invalid;
+        asprintf(&mp, ROOT"/%zd", strtol(argv[optind + 1], &first_invalid, 10));
+        if (*first_invalid != '\0')
+        {
+            free(mp);
+            errno = EINVAL;
+            panic(machine_readable, "input", "Disk id is invalid");
+        }
 
         if (destroy_ramdisk(mp) == -1)
         {
