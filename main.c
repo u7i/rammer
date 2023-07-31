@@ -212,7 +212,7 @@ int main(int argc, char** argv)
         {
             free(mp);
             errno = EINVAL;
-            panic(machine_readable, "input", "Disk id is invalid");
+            panic(machine_readable, "parse-disk-id", "Disk id is not a number");
         }
 
         if (destroy_ramdisk(mp) == -1)
